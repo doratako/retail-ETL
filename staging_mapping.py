@@ -10,7 +10,7 @@ meta = MetaData()
 transaction = Table(
     "transaction",
     meta,
-    Column("invoice_id", String(20), primary_key=False, nullable=False),
+    Column("invoice_id", String(20),  nullable=False),
     Column("stock_code", String(20)),
     Column("description", String(100)),
     Column("quantity", Integer),
@@ -24,7 +24,7 @@ transaction = Table(
 customer = Table(
     "customer",
     meta,
-    Column("customer_id", Integer, primary_key=False, nullable=False),
+    Column("customer_id", Integer, nullable=False),
     Column("gender", String(20)),
     Column("date_of_birth", Date),
     Column("load_session_id", Integer,  nullable=False)
@@ -33,7 +33,7 @@ customer = Table(
 meta_load_history = Table(
     "meta_load_history",
     meta,
-    Column("load_session_id", Integer, primary_key=True, autoincrement=True),
+    Column("load_session_id", Integer, nullable=False),
     Column("load_start_time", DateTime),
     Column("load_end_time", DateTime),
     Column("load_status", String(20)),
@@ -44,10 +44,10 @@ meta_load_history = Table(
 transaction_load_history = Table(
     "transaction_load_history",
     meta,
-    Column("load_session_id", Integer, ForeignKey("meta_load_history.load_session_id"),  nullable=False),
+    Column("load_session_id", Integer, nullable=False),
     Column("load_date", DateTime),
     Column("load_status", String(20)),
-    Column("invoice_id", String(20), primary_key=False,  nullable=False),
+    Column("invoice_id", String(20), nullable=False),
     Column("stock_code", String(20)),
     Column("description", String(100)),
     Column("quantity", Integer),
@@ -61,8 +61,8 @@ transaction_load_history = Table(
 customer_load_history = Table(
     "customer_load_history",
     meta,
-    Column("load_session_id", Integer, ForeignKey("meta_load_history.load_session_id"),  nullable=False),
-    Column("customer_id", Integer, primary_key=False, nullable=False),
+    Column("load_session_id", Integer, nullable=False),
+    Column("customer_id", Integer, nullable=False),
     Column("gender", String(20)),
     Column("date_of_birth", Date),
 )
