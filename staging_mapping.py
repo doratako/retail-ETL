@@ -45,8 +45,6 @@ transaction_load_history = Table(
     "transaction_load_history",
     meta,
     Column("load_session_id", Integer, nullable=False),
-    Column("load_date", DateTime),
-    Column("load_status", String(20)),
     Column("invoice_id", String(20), nullable=False),
     Column("stock_code", String(20)),
     Column("description", String(100)),
