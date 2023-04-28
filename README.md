@@ -20,7 +20,7 @@ In this layer I use Python to handle the data prepare and load processes<br>
 - <lu> Before the initial full load, transaction and customer tables are created to store the actual source data, history tables for storing previously loaded data, 
 and a meta_load_history table for keeping track of the source, load date, and load status
 - <lu> Source files are to be stored in dedicated, separate folders in CSV format. The corresponding script always loads the most recently created source file.
-- <lu> For the initial full load, the customer and transaction tables are truncated before the next load session. 
+- <lu> After the initial full load, the customer and transaction tables are truncated before the next load session. 
 However, the corresponding history tables and meta_load_history table are updated incrementally
 
 
