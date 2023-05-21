@@ -26,6 +26,11 @@ However, the corresponding history tables and meta_load_history table are update
 
 
 #### DW 
-Under development. The concept is to apply start schema, load data from Staging to fact and dimension tables with SQL  <br>
+
+DW layer is based on the priciples of star schema with hybrid approach because of the nature of the dataset, where dimension tables are shared amongst several fact tables, as dimenisons represent core entities fundemantal for analysis scenarios. <br>
+There are two underlying views between the staging and DW fact tables. Their purpose is to physically separte valid and cancelled transactions, providing a clear distinction between them. <br>
+The fact tables are either detailed transactional or periodic snapshot. <br>
+  
+ 
 
 
